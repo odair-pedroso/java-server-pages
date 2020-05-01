@@ -8,16 +8,26 @@
 </head>
 <body>
 	<h1> Bem vindo a pagina jsp</h1>
-	<%out.print("tag jsp"); %>
+	<%= "bem vindo ao jsp" %>
 	<br/>
 	<br/>
-	<form action="receber-nome.jsp" method="post">
+	<form action="receber-nome.jsp" method="get">
 		Insira seu nome : <input type="text" id="nome" name="nome">
-		<input type="submit" value="salvar">
-	
-	
+		<input type="submit" value="salvar">	
 	</form>
-
+	<br/>
+	
+	<%! int number = 2; %>
+	<%= number %>
+	<br/>
+	
+	<%! 
+		public int result(int n){	//não é indicado colocar metodos e regras de negocio dentro do jsp, mas é possivel		
+			return n*4;
+		} 
+	%>
+	<%= result(10) %>
+	
 
 </body>
 </html>

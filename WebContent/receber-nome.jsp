@@ -9,6 +9,11 @@
 <body>
 	
 	<% out.print(request.getParameter("nome")); %>
+	<br/>
+	<%= "Receber nome : " + request.getParameter("nome") %>
+	<br/>
+	
+	
 
 </body>
 </html>

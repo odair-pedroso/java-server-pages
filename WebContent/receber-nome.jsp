@@ -4,15 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>receber-nome</title>
 </head>
 <body>
 	
-	<% out.print(request.getParameter("nome")); %>
+<%= "Objetos implicitos : são do tipo HttpServletRequest"%>
 	<br/>
-	<%= "Receber nome : " + request.getParameter("nome") %>
 	<br/>
-	
+	<% out.print(request.getParameter("nome"));%>
+	<br/>
+	<br/>
+	<%= "Receber nome : " + request.getParameter("nome")%>
+	<br/>
+	<br/>
+	<%= request.getContextPath()%>
+	<br/>
+	<br/>
+	<%= request.getLocalPort()%>
+	<br/>
+	<br/>
+	<%= request.getProtocol()%>
+	<br/>
+	<br/>
+	<%= request.getRequestedSessionId()%>
+	<br/>
+	<% response.sendRedirect("http://www.uol.com.br");%>
 	
 
 </body>

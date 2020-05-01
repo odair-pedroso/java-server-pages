@@ -16,11 +16,7 @@
 		<input type="submit" value="salvar">	
 	</form>
 	
-	<%session.setAttribute("projeto", "projeto jsp");//setando um atributo na sessao de (index.jsp) e resgatando em (receber-nome.jsp) %> 
-	
-	
-	
-	
+	<%session.setAttribute("projeto", "projeto jsp");//setando um atributo na sessao de (index.jsp) e resgatando em (receber-nome.jsp) %>	
 	
 	<br/>
 	
@@ -37,6 +33,26 @@
 	<br/>	
 	
 	<%= application.getInitParameter("estado") %>
+	<br/>
+	<br/>
+	
+	<%@ page import="java.util.Date" %> 
+	
+	<%="data de hoje é : " + new Date() %>
+	
+	<br/>
+	<br/>
+	
+	<%@ page errorPage="receber-nome.jsp"%> <!-- direcionar para uma pagina de erro quando ocorrer algum erro na pagina, no caso forçamos erro 100/0 -->
+	<%=100/2 %>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 </body>

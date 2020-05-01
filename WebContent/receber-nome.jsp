@@ -32,6 +32,13 @@
 	
 	<%=session.getAttribute("projeto") %>
 	
+	<br/>
+	
+	<%@ page isErrorPage="true" %> <!-- recebendo o erro da pagina (index.jsp) e lançando o erro como exceção na pagina indicada (receber-nome.jsp) -->
+	<%= exception %>
+	
+	
+	
 
 </body>
 </html>

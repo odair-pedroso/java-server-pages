@@ -1,3 +1,6 @@
+<jsp:useBean id="calcula" class="beans.BeanProjetoJsp" type="beans.BeanProjetoJsp" scope="page" ></jsp:useBean>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -12,6 +15,17 @@
 </head>
 <body>
 	<h1> Bem vindo a pagina jsp</h1>
+	
+	<br/>
+	<br/>
+	
+	<%= calcula.calcula(50) %>
+	
+	<br/>
+	<br/>
+	
+	
+	
 	<%= "bem vindo ao jsp" %>
 	<br/>
 	<br/>

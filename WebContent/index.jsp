@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1> Bem vindo a pagina jsp</h1>
+	<%out.print("tag jsp"); %>
+
 
 </body>
 </html>

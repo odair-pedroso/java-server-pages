@@ -59,11 +59,18 @@
 	
 	<myprefix:minhatag/>
 	
+	<br/>
+	<br/>
+	
+	<h1> Index </h1>
 	
 	
 	
+	<jsp:include page="cabecalho.jsp"></jsp:include>
 	
+		<h3> conteudo da pagina</h3>
 	
+	<jsp:include page="rodape.jsp"></jsp:include>
 	
 
 </body>

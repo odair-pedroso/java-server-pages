@@ -42,8 +42,12 @@
 	
 	<%@ include file="pagina-include.jsp" %>
 	
+	<br/>
+	<br/>
 	
+	<h1>receber nome</h1>
 	
+	<%= request.getParameter("paramforward") %>
 	
 	
 	

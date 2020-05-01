@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib prefix="myprefix" uri="WEB-INF/testetag.tld"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,7 +50,14 @@
 	<%@ page errorPage="receber-nome.jsp"%> <!-- direcionar para uma pagina de erro quando ocorrer algum erro na pagina, no caso forçamos erro 100/0 -->
 	<%=100/2 %>
 	
+	<br/>
+	<br/>
 	
+	<%@ include file="pagina-include.jsp" %>
+	
+	<br/>
+	
+	<myprefix:minhatag/>
 	
 	
 	

@@ -35,7 +35,17 @@
 	<br/>
 	
 	<%@ page isErrorPage="true" %> <!-- recebendo o erro da pagina (index.jsp) e lançando o erro como exceção na pagina indicada (receber-nome.jsp) -->
-	<%= exception %>
+	<%= exception %>	
+	
+	<br/>
+	<br/>
+	
+	<%@ include file="pagina-include.jsp" %>
+	
+	
+	
+	
+	
 	
 	
 	

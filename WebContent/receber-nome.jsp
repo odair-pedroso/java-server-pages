@@ -7,17 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> Bem vindo a pagina jsp</h1>
-	<%out.print("tag jsp"); %>
-	<br/>
-	<br/>
-	<form action="receber-nome.jsp" method="post">
-		Insira seu nome : <input type="text" id="nome" name="nome">
-		<input type="submit" value="salvar">
 	
-	
-	</form>
-
+	<% out.print(request.getParameter("nome")); %>
 
 </body>
 </html>

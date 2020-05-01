@@ -15,6 +15,13 @@
 		Insira seu nome : <input type="text" id="nome" name="nome">
 		<input type="submit" value="salvar">	
 	</form>
+	
+	<%session.setAttribute("projeto", "projeto jsp");//setando um atributo na sessao de (index.jsp) e resgatando em (receber-nome.jsp) %> 
+	
+	
+	
+	
+	
 	<br/>
 	
 	<%! int number = 2; %>

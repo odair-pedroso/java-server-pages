@@ -28,7 +28,9 @@
 	<br/>
 	<%= request.getRequestedSessionId()%>
 	<br/>
-	<% response.sendRedirect("http://www.uol.com.br");%>
+	<% //response.sendRedirect("http://www.uol.com.br"); //comentando o codigo que redireciona esta pagina para a pagina uol.%>
+	
+	<%=session.getAttribute("projeto") %>
 	
 
 </body>

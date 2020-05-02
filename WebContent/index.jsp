@@ -19,19 +19,9 @@
 	
 	<form action="cabecalho.jsp" method="post">
 	
-		Digite seu nome:
-		<input type="text" id="nome" name="nome">
-		<br/>
-		<br/>
-		Digite o ano de seu nascimento:
-		<input type="text" id="ano" name="ano">
-		<br/>
-		<br/>
-		Digite o sexo:
-		<input type="text" id="sexo" name="sexo">
-		<br/>
-		<br/>
-		<input type="submit" value="testar">	
+		<% session.setAttribute("user", "java web"); %>	
+		
+			<a href="cabecalho.jsp">Ver teste</a>	
 	
 	</form>
 	

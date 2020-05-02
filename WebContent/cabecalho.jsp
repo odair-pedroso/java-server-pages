@@ -19,11 +19,13 @@
 	
 	<h3>Cabecalho</h3>
 	
-	<jsp:getProperty property="nome" name="calcula"/>
-	<br/>
-	<jsp:getProperty property="ano" name="calcula"/>
-	<br/>
-	<jsp:getProperty property="sexo" name="calcula"/>
+		Nome: ${param.nome}
+		<br/>
+		Ano: ${param.ano}
+		<br/>
+		${sessionScope.user}
+			
+	
 	
 </body>
 </html>

@@ -1,6 +1,7 @@
 <jsp:useBean id="calcula" class="beans.BeanProjetoJsp" type="beans.BeanProjetoJsp" scope="page" ></jsp:useBean>
 
 
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -15,6 +16,35 @@
 </head>
 <body>
 	<h1> Bem vindo a pagina jsp</h1>
+	
+	<form action="cabecalho.jsp" method="post">
+	
+		Digite seu nome:
+		<input type="text" id="nome" name="nome">
+		<br/>
+		<br/>
+		Digite o ano de seu nascimento:
+		<input type="text" id="ano" name="ano">
+		<br/>
+		<br/>
+		Digite o sexo:
+		<input type="text" id="sexo" name="sexo">
+		<br/>
+		<br/>
+		<input type="submit" value="testar">	
+	
+	</form>
+	
+	<br/>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<br/>
 	<br/>

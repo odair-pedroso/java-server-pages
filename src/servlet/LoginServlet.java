@@ -10,10 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.BeanProjetoJsp;
+import dao.DaoLogin;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private DaoLogin daoLogin = new DaoLogin(); // criar uma nova instancia na servlet do DaoLogin para usar este objeto
+												// DaoLogin
 
 	public LoginServlet() {
 		super();
@@ -29,23 +33,28 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		BeanProjetoJsp beanValidar = new BeanProjetoJsp();
+		try {
 
-		System.out.println(request.getParameter("login"));
-		System.out.println(request.getParameter("senha"));
+			BeanProjetoJsp beanValidar = new BeanProjetoJsp();
 
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
+			System.out.println(request.getParameter("login"));
+			System.out.println(request.getParameter("senha"));
 
-		if (beanValidar.validarLoginSenha(login, senha)) { // se for acesso ok
-			RequestDispatcher dispatcher = request.getRequestDispatcher("acessoliberado.jsp");
-			dispatcher.forward(request, response);
+			String login = request.getParameter("login");
+			String senha = request.getParameter("senha");
 
-		} else { // se for acesso negado
-			RequestDispatcher dispatcher = request.getRequestDispatcher("acessonegado.jsp");
-			dispatcher.forward(request, response);
+			if (daoLogin.validarLogin(login, senha)) { // se for acesso ok
+				RequestDispatcher dispatcher = request.getRequestDispatcher("acessoliberado.jsp");
+				dispatcher.forward(request, response);
+
+			} else { // se for acesso negado
+				RequestDispatcher dispatcher = request.getRequestDispatcher("acessonegado.jsp");
+				dispatcher.forward(request, response);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
 	}
 
 }

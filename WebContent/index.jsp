@@ -80,14 +80,40 @@
 <c:forEach var="n" begin="1" end="${numero}">
 
 	Item : ${n}
-	<p/>
+	<br/>
 
 </c:forEach>
 
+<br/>
+
+<c:forTokens items="Odair-Pedroso-Junior" delims="-" var="nome">
+
+	Nome : <c:out value="${nome}"></c:out>
+	<br/>
 
 
+</c:forTokens>
 
+<br/>
 
+<c:url value="/acessoliberado.jsp" var="acesso">
+	<c:param name="param 1" value="111"></c:param>
+	<c:param name="param 2" value="222"></c:param>
+
+</c:url>
+${acesso}
+
+<br/>
+
+<c:set var ="numero" value="${100/3}"></c:set>
+
+<c:if test="${numero > 50 }">
+	<c:redirect url="https://www.google.com.br"></c:redirect>
+</c:if>
+
+<c:if test="${numero < 50 }">
+	<c:redirect url="http://www.javaavancado.com"></c:redirect>
+</c:if>
 
 
 

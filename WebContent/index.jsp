@@ -16,8 +16,76 @@
 </head>
 
 
-
 <body>
+
+<c:out value="${ 'bem vindo ao JSTL' }"></c:out>
+
+<p/>
+
+<c:set var="data" scope="page" value="${500*6 }" ></c:set>
+<c:out value="${data}"></c:out>
+
+<p/>
+
+<c:set var="data1" scope="page" value="${500*10 }" ></c:set>
+
+<c:remove var="data1"/>
+
+<c:out value="${data1}"></c:out>
+
+<p/>
+
+<c:catch var="erro">
+	<% int var = 100/0; %>
+
+</c:catch>
+
+<c:if test="${erro != null }">
+	${erro.message}
+
+</c:if>
+
+<p/>
+
+<c:set var ="numero" value="${100/2}"></c:set>
+
+<c:choose>
+	
+	<c:when test="${numero > 50 }">
+		
+		<c:out value="${'O valor é maior que 50'}"></c:out>	
+	
+	</c:when>
+	
+	<c:when test="${numero < 50 }">
+		
+		<c:out value="${'O valor é menor que 50'}"></c:out>	
+	
+	</c:when>
+	
+	<c:otherwise>
+	
+		<c:out value="${'Número não satisfaz nenhuma das condições'}"></c:out>
+	
+	</c:otherwise>
+
+
+</c:choose>
+
+<p/>
+
+
+<c:set var ="numero" value="${100/3}"></c:set>
+
+<c:forEach var="n" begin="1" end="${numero}">
+
+	Item : ${n}
+	<p/>
+
+</c:forEach>
+
+
+
 
 
 

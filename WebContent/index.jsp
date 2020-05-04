@@ -105,16 +105,6 @@ ${acesso}
 
 <br/>
 
-<c:set var ="numero" value="${100/3}"></c:set>
-
-<c:if test="${numero > 50 }">
-	<c:redirect url="https://www.google.com.br"></c:redirect>
-</c:if>
-
-<c:if test="${numero < 50 }">
-	<c:redirect url="http://www.javaavancado.com"></c:redirect>
-</c:if>
-
 
 
 

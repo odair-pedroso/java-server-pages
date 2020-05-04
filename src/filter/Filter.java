@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebFilter;
 import connection.SingleConnection;
 
 @WebFilter(urlPatterns = { "/*" }) // intercepta todas as requisições para conectar ao banco
+
 public class Filter implements javax.servlet.Filter {
 
 	private static Connection connection;
@@ -40,8 +41,8 @@ public class Filter implements javax.servlet.Filter {
 			connection.commit();
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			try {
+				e.printStackTrace();
 				connection.rollback();
 			} catch (SQLException e1) {
 

@@ -15,9 +15,13 @@
 
 <body>
 	
-	<jsp:setProperty property="*" name="calcula"/>	
+	<jsp:setProperty property="*" name="calcula"/>
+		
 	<h3>Seja bem vindo ao sistema</h3>
 	
+	Clique aqui para cadastrar seu usuário:
+	<p/>
+	<a href="cadastroUsuario.jsp">Cadastro de usuários</a>
 		
 	
 	

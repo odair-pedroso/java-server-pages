@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Index</title>
+<title>Tela Inicial</title>
 </head>
 
 
@@ -24,8 +24,9 @@
 		<input type="text" id="login" name="login">		
 		<br/>
 		Senha:
-		<input type="text" id="senha" name="senha">
+		<input type="password" id="senha" name="senha">
 		<br/>
+		<p/>
 		<input type="submit" value="Logar">
 	
 	</form>

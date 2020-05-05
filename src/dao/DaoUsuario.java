@@ -73,4 +73,27 @@ public class DaoUsuario {
 
 	}
 
+	// método para deletar os registros de cadastro de usuarios via front
+
+	public void delete(String login) {
+
+		try {
+			String sql = "delete from usuario where login = '" + login + "'";
+			PreparedStatement deletar = connection.prepareStatement(sql);
+			deletar.execute();
+			connection.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+
+				e1.printStackTrace();
+			}
+
+		}
+
+	}
+
 }

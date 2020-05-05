@@ -26,8 +26,8 @@ public class Usuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println(request.getParameter("acao"));
 		System.out.println(request.getParameter("user"));
+		System.out.println(request.getParameter("acao"));
 
 		try {
 
@@ -39,6 +39,15 @@ public class Usuario extends HttpServlet {
 
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("usuarios", daoUsuario.listar());
+				view.forward(request, response);
+
+			} else if (acao.equalsIgnoreCase("editar")) {
+
+				BeanProjetoJsp consultarObjeto = daoUsuario.consultar(user); // criar metodo consultar login
+
+				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
+				request.setAttribute("user", consultarObjeto); // não passo a lista de usuarios, somente um usuario a
+																// ser editado
 				view.forward(request, response);
 
 			}

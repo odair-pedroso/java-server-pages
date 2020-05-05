@@ -96,4 +96,25 @@ public class DaoUsuario {
 
 	}
 
+	public BeanProjetoJsp consultar(String login) throws Exception {
+
+		String sql = "select * from usuario where login='" + login + "'";
+
+		PreparedStatement selectLogin = connection.prepareStatement(sql);
+		ResultSet resultado = selectLogin.executeQuery();
+		connection.commit();
+
+		if (resultado.next()) {
+
+			BeanProjetoJsp retornoConsulta = new BeanProjetoJsp();
+
+			retornoConsulta.setLogin(resultado.getString("login"));
+			retornoConsulta.setSenha(resultado.getString("senha"));
+
+			return retornoConsulta;
+		}
+
+		return null;
+	}
+
 }

@@ -15,14 +15,20 @@
 	
 	<form action ="salvarUsuario" method="post">
 		<table>
+		
+		
 			<tr>				
-				<td>login:<td/>
-				<td><input type="text" id="login" name="login"><td/>		
+				<td>Código:<td/>
+				<td><input type="text" id="id" name="id" value="${user.id}"><td/>		
+			<tr/>
+			<tr>				
+				<td>Login:<td/>
+				<td><input type="text" id="login" name="login" value="${user.login}"><td/>		
 			<tr/>
 		
 			<tr>				
-				<td>senha:<td/>
-				<td><input type="password" id="senha" name="senha"><td/>		
+				<td>Senha:<td/>
+				<td><input type="password" id="senha" name="senha" value="${user.senha}"><td/>		
 			<tr/>		
 		</table>
 		<p/>
@@ -38,6 +44,7 @@
 				
 				
 				<td><a href="salvarUsuario?acao=delete&user=${user.login}">Excluir usuário</a><td/>
+				<td><a href="salvarUsuario?acao=editar&user=${user.login}">Editar usuário</a><td/>
 							
 			<tr/>		
 		</c:forEach>

@@ -117,4 +117,28 @@ public class DaoUsuario {
 		return null;
 	}
 
+	public void atualizar(BeanProjetoJsp usuario) { // metodo para atualizar um usuario ja existente
+
+		try {
+
+			String sql = "update usuario set login = ?, senha = ? where id = " + usuario.getId();
+
+			PreparedStatement atualizarObjeto = connection.prepareStatement(sql);
+			atualizarObjeto.setString(1, usuario.getLogin());
+			atualizarObjeto.setString(2, usuario.getSenha());
+
+			atualizarObjeto.executeUpdate();
+			connection.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+	}
+
 }

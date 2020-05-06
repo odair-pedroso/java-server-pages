@@ -61,18 +61,27 @@ public class Usuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println(request.getParameter("id"));
 		System.out.println(request.getParameter("login"));
 		System.out.println(request.getParameter("senha"));
 
+		String id = request.getParameter("id");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 
-		BeanProjetoJsp usuario = new BeanProjetoJsp();
+		BeanProjetoJsp usuario = new BeanProjetoJsp(); // instancia novo objeto com todos os atributos de usuario;
 
+		usuario.setId(!id.isEmpty() ? Long.parseLong(id) : 0); // id é long ,
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
 
-		daoUsuario.salvar(usuario);
+		if (id == null || id.isEmpty()) { // se id for nulo ou ainda se for vazio ( condição para se o id não existir
+											// ainda )
+			daoUsuario.salvar(usuario);
+
+		} else {
+			daoUsuario.atualizar(usuario);
+		}
 
 		try {
 

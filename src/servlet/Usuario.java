@@ -40,8 +40,9 @@ public class Usuario extends HttpServlet {
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("usuarios", daoUsuario.listar());
 				view.forward(request, response);
+			}
 
-			} else if (acao.equalsIgnoreCase("editar")) {
+			else if (acao.equalsIgnoreCase("editar")) {
 
 				BeanProjetoJsp consultarObjeto = daoUsuario.consultar(user); // criar metodo consultar login
 
@@ -78,7 +79,6 @@ public class Usuario extends HttpServlet {
 		if (id == null || id.isEmpty()) { // se id for nulo ou ainda se for vazio ( condição para se o id não existir
 											// ainda )
 			daoUsuario.salvar(usuario);
-
 		} else {
 			daoUsuario.atualizar(usuario);
 		}

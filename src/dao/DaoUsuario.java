@@ -62,6 +62,8 @@ public class DaoUsuario {
 
 			BeanProjetoJsp beanProjetoJsp = new BeanProjetoJsp();// instanciar o objeto , para cada novo login e senha ,
 																	// são criados novos beanProjetoJsp
+
+			beanProjetoJsp.setId(resultado.getLong("id"));
 			beanProjetoJsp.setLogin(resultado.getString("login")); // setar e recuperar atributos
 			beanProjetoJsp.setSenha(resultado.getString("senha"));
 
@@ -105,9 +107,9 @@ public class DaoUsuario {
 		connection.commit();
 
 		if (resultado.next()) {
-
 			BeanProjetoJsp retornoConsulta = new BeanProjetoJsp();
 
+			retornoConsulta.setId(resultado.getLong("id"));
 			retornoConsulta.setLogin(resultado.getString("login"));
 			retornoConsulta.setSenha(resultado.getString("senha"));
 

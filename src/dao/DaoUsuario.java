@@ -79,10 +79,10 @@ public class DaoUsuario {
 
 	// método para deletar os registros de cadastro de usuarios via front
 
-	public void delete(String login) {
+	public void delete(String id) {
 
 		try {
-			String sql = "delete from usuario where login = '" + login + "'";
+			String sql = "delete from usuario where id = '" + id + "'";
 			PreparedStatement deletar = connection.prepareStatement(sql);
 			deletar.execute();
 			connection.commit();
@@ -100,9 +100,9 @@ public class DaoUsuario {
 
 	}
 
-	public BeanProjetoJsp consultar(String login) throws Exception {
+	public BeanProjetoJsp consultar(String id) throws Exception {
 
-		String sql = "select * from usuario where login='" + login + "'";
+		String sql = "select * from usuario where id='" + id + "'";
 
 		PreparedStatement selectLogin = connection.prepareStatement(sql);
 		ResultSet resultado = selectLogin.executeQuery();

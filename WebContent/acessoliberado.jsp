@@ -21,7 +21,7 @@
 	
 	Clique aqui para cadastrar seu usuário:
 	<p/>
-	<a href="cadastroUsuario.jsp">Cadastro de usuários</a>
+	<a href="salvarUsuario?acao=listartodos">Cadastro de usuários</a>
 		
 	
 	

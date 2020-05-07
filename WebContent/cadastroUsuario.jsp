@@ -14,12 +14,9 @@
 
 	<center>
 			<h1>Cadastro de usuario</h1>			
-	</center>
+	</center>	
 	
-	
-	
-	<form action ="salvarUsuario" method="post">
-		
+	<form action ="salvarUsuario" method="post">		
 		<ul class="form-style-1">
 			<li>
 				<table>		

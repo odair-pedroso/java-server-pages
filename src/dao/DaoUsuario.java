@@ -25,10 +25,11 @@ public class DaoUsuario {
 
 		try {
 
-			String sql = "insert into usuario (login , senha) values (?,?)";
+			String sql = "insert into usuario (login , senha , nome) values (?,?,?)";
 			PreparedStatement insertUsuario = connection.prepareStatement(sql);
 			insertUsuario.setString(1, usuario.getLogin());
 			insertUsuario.setString(2, usuario.getSenha());
+			insertUsuario.setString(3, usuario.getNome());
 			insertUsuario.execute();
 			connection.commit(); // salva no banco de dados
 
@@ -66,6 +67,7 @@ public class DaoUsuario {
 			beanProjetoJsp.setId(resultado.getLong("id"));
 			beanProjetoJsp.setLogin(resultado.getString("login")); // setar e recuperar atributos
 			beanProjetoJsp.setSenha(resultado.getString("senha"));
+			beanProjetoJsp.setNome(resultado.getString("nome"));
 
 			list.add(beanProjetoJsp); // adicionar cada novo objeto na lista
 

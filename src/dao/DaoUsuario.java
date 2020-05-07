@@ -114,6 +114,7 @@ public class DaoUsuario {
 			retornoConsulta.setId(resultado.getLong("id"));
 			retornoConsulta.setLogin(resultado.getString("login"));
 			retornoConsulta.setSenha(resultado.getString("senha"));
+			retornoConsulta.setNome(resultado.getString("nome"));
 
 			return retornoConsulta;
 		}
@@ -125,11 +126,12 @@ public class DaoUsuario {
 
 		try {
 
-			String sql = "update usuario set login = ?, senha = ? where id = " + usuario.getId();
+			String sql = "update usuario set login = ?, senha = ?, nome = ? where id = " + usuario.getId();
 
 			PreparedStatement atualizarObjeto = connection.prepareStatement(sql);
 			atualizarObjeto.setString(1, usuario.getLogin());
 			atualizarObjeto.setString(2, usuario.getSenha());
+			atualizarObjeto.setString(3, usuario.getNome());
 
 			atualizarObjeto.executeUpdate();
 			connection.commit();

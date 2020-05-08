@@ -105,15 +105,24 @@ public class Usuario extends HttpServlet {
 			usuario.setSenha(senha);
 			usuario.setNome(nome);
 
-			if (id == null || id.isEmpty()) { // se id for nulo ou ainda se for vazio ( condição para se o id não
-												// existir
-												// ainda )
-				daoUsuario.salvar(usuario);
-			} else {
-				daoUsuario.atualizar(usuario);
-			}
-
 			try {
+
+				if (id == null || id.isEmpty() && !daoUsuario.validarLogin(login)) { // se tentarmos cadastrar um ID já
+																						// existente
+
+					request.setAttribute("msg",
+							"Usuário já existe na base de dados com mesmo login, favor cadastrar um novo login");
+				}
+
+				if (id == null || id.isEmpty() && daoUsuario.validarLogin(login)) { // valida se id é nulo ou vazio e
+																					// valida o login ( se ja existe )
+
+					daoUsuario.salvar(usuario); // salvar
+
+				} else if (id != null && !id.isEmpty()) { // se o id já existir sendo diferente de nulo e diferente de
+															// vazio, ele atualiza apenas ,
+					daoUsuario.atualizar(usuario);
+				}
 
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("usuarios", daoUsuario.listar());

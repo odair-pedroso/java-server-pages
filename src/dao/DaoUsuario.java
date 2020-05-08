@@ -122,6 +122,22 @@ public class DaoUsuario {
 		return null;
 	}
 
+	public Boolean validarLogin(String login) throws Exception {
+
+		String sql = "select count(1) as qtd from usuario where login='" + login + "'";
+
+		PreparedStatement validaLogin = connection.prepareStatement(sql);
+		ResultSet resultado = validaLogin.executeQuery();
+		connection.commit();
+
+		if (resultado.next()) {
+
+			return resultado.getInt("qtd") <= 0; // retorna true
+		}
+
+		return false;
+	}
+
 	public void atualizar(BeanProjetoJsp usuario) { // metodo para atualizar um usuario ja existente
 
 		try {

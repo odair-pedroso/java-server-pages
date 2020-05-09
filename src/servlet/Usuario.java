@@ -26,9 +26,6 @@ public class Usuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println(request.getParameter("user"));
-		System.out.println(request.getParameter("acao"));
-
 		try {
 
 			String acao = request.getParameter("acao");
@@ -37,13 +34,20 @@ public class Usuario extends HttpServlet {
 			if (acao.equalsIgnoreCase("delete")) {
 				daoUsuario.delete(user);
 
+				System.out.println(request.getParameter("acao"));
+				System.out.println(request.getParameter("user"));
+
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("usuarios", daoUsuario.listar());
+
 				view.forward(request, response);
 
 			} else if (acao.equalsIgnoreCase("editar")) {
 
 				BeanProjetoJsp consultarObjeto = daoUsuario.consultar(user); // criar metodo consultar login
+
+				System.out.println(request.getParameter("acao"));
+				System.out.println(request.getParameter("user"));
 
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
 				request.setAttribute("user", consultarObjeto); // não passo a lista de usuarios, somente um usuario a
@@ -71,17 +75,17 @@ public class Usuario extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println(request.getParameter("acao"));
-
 		System.out.println(request.getParameter("id"));
 		System.out.println(request.getParameter("login"));
 		System.out.println(request.getParameter("senha"));
 		System.out.println(request.getParameter("nome"));
+		System.out.println(request.getParameter("telefone"));
 
 		String id = request.getParameter("id");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
-
+		String telefone = request.getParameter("telefone");
 		String acao = request.getParameter("acao");
 
 		if (acao != null && acao.equalsIgnoreCase("reset")) {
@@ -104,6 +108,7 @@ public class Usuario extends HttpServlet {
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
 			usuario.setNome(nome);
+			usuario.setTelefone(telefone);
 
 			try {
 

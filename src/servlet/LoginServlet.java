@@ -37,8 +37,12 @@ public class LoginServlet extends HttpServlet {
 
 			BeanProjetoJsp beanValidar = new BeanProjetoJsp();
 
+			System.out.println(request.getParameter("id"));
 			System.out.println(request.getParameter("login"));
 			System.out.println(request.getParameter("senha"));
+			System.out.println(request.getParameter("nome"));
+			System.out.println(request.getParameter("telefone"));
+			System.out.println("--------------------------------------------------------------------------");
 
 			String login = request.getParameter("login");
 			String senha = request.getParameter("senha");

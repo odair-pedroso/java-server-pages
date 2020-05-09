@@ -21,7 +21,7 @@
 	
 	Clique aqui para cadastrar seu usuário:
 	<p/>
-	<a href="salvarUsuario?acao=listartodos">Cadastro de usuários</a>
+	<a href="salvarUsuario?acao=listartodos"><img src="resources/img/icone_cadastro.png" alt="Cadastrar" title="Cadastrar" width="100px" height="100px"></a>
 		
 	
 	

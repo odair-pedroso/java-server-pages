@@ -6,6 +6,15 @@ public class BeanProjetoJsp {
 	private String login;
 	private String senha;
 	private String nome;
+	private String telefone;
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
 
 	public String getNome() {
 		return nome;

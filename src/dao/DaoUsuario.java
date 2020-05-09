@@ -25,11 +25,12 @@ public class DaoUsuario {
 
 		try {
 
-			String sql = "insert into usuario (login , senha , nome) values (?,?,?)";
+			String sql = "insert into usuario (login, senha, nome, telefone) values (?,?,?,?)";
 			PreparedStatement insertUsuario = connection.prepareStatement(sql);
 			insertUsuario.setString(1, usuario.getLogin());
 			insertUsuario.setString(2, usuario.getSenha());
 			insertUsuario.setString(3, usuario.getNome());
+			insertUsuario.setString(4, usuario.getTelefone());
 			insertUsuario.execute();
 			connection.commit(); // salva no banco de dados
 
@@ -68,6 +69,7 @@ public class DaoUsuario {
 			beanProjetoJsp.setLogin(resultado.getString("login")); // setar e recuperar atributos
 			beanProjetoJsp.setSenha(resultado.getString("senha"));
 			beanProjetoJsp.setNome(resultado.getString("nome"));
+			beanProjetoJsp.setTelefone(resultado.getString("telefone"));
 
 			list.add(beanProjetoJsp); // adicionar cada novo objeto na lista
 
@@ -109,12 +111,14 @@ public class DaoUsuario {
 		connection.commit();
 
 		if (resultado.next()) {
+
 			BeanProjetoJsp retornoConsulta = new BeanProjetoJsp();
 
 			retornoConsulta.setId(resultado.getLong("id"));
 			retornoConsulta.setLogin(resultado.getString("login"));
 			retornoConsulta.setSenha(resultado.getString("senha"));
 			retornoConsulta.setNome(resultado.getString("nome"));
+			retornoConsulta.setTelefone(resultado.getString("telefone"));
 
 			return retornoConsulta;
 		}
@@ -142,12 +146,14 @@ public class DaoUsuario {
 
 		try {
 
-			String sql = "update usuario set login = ?, senha = ?, nome = ? where id = " + usuario.getId();
+			String sql = "update usuario set login = ?, senha = ?, nome = ?, telefone = ? where id = "
+					+ usuario.getId();
 
 			PreparedStatement atualizarObjeto = connection.prepareStatement(sql);
 			atualizarObjeto.setString(1, usuario.getLogin());
 			atualizarObjeto.setString(2, usuario.getSenha());
 			atualizarObjeto.setString(3, usuario.getNome());
+			atualizarObjeto.setString(4, usuario.getTelefone());
 
 			atualizarObjeto.executeUpdate();
 			connection.commit();

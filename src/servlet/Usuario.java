@@ -112,20 +112,34 @@ public class Usuario extends HttpServlet {
 
 			try {
 
-				if (id == null || id.isEmpty() && !daoUsuario.validarLogin(login)) { // se tentarmos cadastrar um ID já
-																						// existente
+				String msg = null;
+				boolean podeInserir = true;
 
-					request.setAttribute("msg",
-							"Usuário já existe na base de dados com mesmo login, favor cadastrar um novo login");
+				if (id == null || id.isEmpty() && !daoUsuario.validarLogin(login)) { // para usuario novo.
+
+					msg = "Usuário já existe com o mesmo login";
+					podeInserir = false;
+
+				} else if (id == null || id.isEmpty() && !daoUsuario.validarSenha(senha)) {
+
+					msg = "\n A senha informada já existe para outro usuário";
+					podeInserir = false;
+
 				}
 
-				if (id == null || id.isEmpty() && daoUsuario.validarLogin(login)) { // valida se id é nulo ou vazio e
-																					// valida o login ( se ja existe )
+				if (msg != null) {
+
+					request.setAttribute("msg", msg);
+				}
+
+				if (id == null || id.isEmpty() && daoUsuario.validarLogin(login) && podeInserir) { // valida se id é
+																									// nulo ou vazio e
+					// valida o login ( se ja existe )
 
 					daoUsuario.salvar(usuario); // salvar
 
-				} else if (id != null && !id.isEmpty()) { // se o id já existir sendo diferente de nulo e diferente de
-															// vazio, ele atualiza apenas ,
+				} else if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
+																			// diferente de vazio
 					daoUsuario.atualizar(usuario);
 				}
 

@@ -126,9 +126,45 @@ public class DaoUsuario {
 		return null;
 	}
 
+	// metodo para validar login no momento da primeira edição do usuário .
+
 	public Boolean validarLogin(String login) throws Exception {
 
 		String sql = "select count(1) as qtd from usuario where login='" + login + "'";
+
+		PreparedStatement validaLogin = connection.prepareStatement(sql);
+		ResultSet resultado = validaLogin.executeQuery();
+		connection.commit();
+
+		if (resultado.next()) {
+
+			return resultado.getInt("qtd") <= 0; // retorna true
+		}
+
+		return false;
+	}
+
+	// metodo para validar a senha não deicando ser igual a uma existente
+
+	public boolean validarSenha(String senha) throws Exception {
+		String sql = "select count(1) as qtd from usuario where senha='" + senha + "'";
+
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		if (resultSet.next()) {
+
+			return resultSet.getInt("qtd") <= 0;/* Return true */
+		}
+		return false;
+	}
+
+	// metodo para validar se o login ja existe , para o cenario do usuario clicar
+	// em editar um login ja existente e atualizar para um login já existente,
+	// evitando que o banco e o sistema fiquem com logins duplicados.
+
+	public Boolean validarLoginUpdate(String login, String id) throws Exception {
+
+		String sql = "select count(1) as qtd from usuario where login='" + login + "' and id <> " + id;
 
 		PreparedStatement validaLogin = connection.prepareStatement(sql);
 		ResultSet resultado = validaLogin.executeQuery();

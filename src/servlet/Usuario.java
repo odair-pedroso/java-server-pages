@@ -104,7 +104,7 @@ public class Usuario extends HttpServlet {
 
 			BeanProjetoJsp usuario = new BeanProjetoJsp(); // instancia novo objeto com todos os atributos de usuario;
 
-			usuario.setId(!id.isEmpty() ? Long.parseLong(id) : 0); // id é long ,
+			usuario.setId(!id.isEmpty() ? Long.parseLong(id) : null); // id é long ,
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
 			usuario.setNome(nome);
@@ -141,6 +141,11 @@ public class Usuario extends HttpServlet {
 				} else if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
 																			// diferente de vazio
 					daoUsuario.atualizar(usuario);
+				}
+
+				if (!podeInserir) {
+
+					request.setAttribute("user", usuario);
 				}
 
 				RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");

@@ -17,13 +17,19 @@
 	
 	<jsp:setProperty property="*" name="calcula"/>
 		
-	<h3>Seja bem vindo ao sistema</h3>
+	<center><h1>Seja bem vindo ao sistema</h1></center>
 	
 	Clique aqui para cadastrar seu usuário:
 	<p/>
-	<a href="salvarUsuario?acao=listartodos"><img src="resources/img/icone_cadastro.png" alt="Cadastrar" title="Cadastrar" width="100px" height="100px"></a>
-		
-	
+	<a href="salvarUsuario?acao=listartodos"><img src="resources/img/icone_cadastro.png" alt="Cadastrar Usuário" title="Cadastrar Usuário" width="100px" height="100px"></a>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	Clique aqui para cadastrar seus produtos:
+	<p/>	
+	<a href="salvarProduto?acao=listartodos"><img src="resources/img/icone_produtos.png" alt="Cadastrar Produto" title="Cadastrar Produto" width="100px" height="100px"></a>
 	
 </body>
 </html>

@@ -1,5 +1,6 @@
+<%@page import="beans.BeanProduto"%>
 <jsp:useBean id="calcula" class="beans.BeanProjetoJsp" type="beans.BeanProjetoJsp" scope="page"></jsp:useBean>
-
+<jsp:useBean id="produto" class="beans.BeanProduto" type="beans.BeanProduto" scope="page"></jsp:useBean>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -7,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cabeçalho</title>
+<title>Tela Escolha</title>
 </head>
 
 
@@ -27,6 +28,9 @@
 	<br>
 	<br>
 	<br>
+	
+	<jsp:setProperty property="*" name="produto"/>
+	
 	Clique aqui para cadastrar seus produtos:
 	<p/>	
 	<a href="salvarProduto?acao=listartodos"><img src="resources/img/icone_produtos.png" alt="Cadastrar Produto" title="Cadastrar Produto" width="100px" height="100px"></a>

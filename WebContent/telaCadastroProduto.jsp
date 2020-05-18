@@ -40,7 +40,7 @@
 					</tr>
 					<tr>				
 						<td>Valor R$:</td>
-						<td><input type="text" id="quantidade" name="quantidade" value="${prod.valor}"></td>		
+						<td><input type="text" id="valor" name="valor" value="${prod.valor}"></td>		
 					</tr>
 					
 					<tr>

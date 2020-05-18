@@ -130,17 +130,24 @@ public class Usuario extends HttpServlet {
 				if (msg != null) {
 
 					request.setAttribute("msg", msg);
+
+				} else if (id == null
+						|| id.isEmpty() && daoUsuario.validarLogin(login) && daoUsuario.validarSenha(senha)) {
+
+					daoUsuario.salvar(usuario);
+
 				}
 
-				if (id == null || id.isEmpty() && daoUsuario.validarLogin(login) && podeInserir) { // valida se id é
-																									// nulo ou vazio e
-					// valida o login ( se ja existe )
+				if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
 
-					daoUsuario.salvar(usuario); // salvar
+					if (!daoUsuario.validarLoginUpdate(login, id)) {
+						request.setAttribute("msg", "Este login já existe para outro usuario");
 
-				} else if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
-																			// diferente de vazio
-					daoUsuario.atualizar(usuario);
+					} else {
+
+						daoUsuario.atualizar(usuario);
+
+					}
 				}
 
 				if (!podeInserir) {

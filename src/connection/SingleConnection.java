@@ -7,7 +7,10 @@ public class SingleConnection {
 
 	/* criar conexão com o banco */
 
-	private static String banco = "jdbc:postgresql://localhost:5432/curso-jsp?autoReconnect=true"; /* url do banco */
+	private static String banco = "jdbc:postgresql://localhost:5432/java-server-pages?autoReconnect=true"; /*
+																											 * url do
+																											 * banco
+																											 */
 	private static String password = "admin"; /* senha */
 	private static String user = "postgres"; /* usuário */
 	private static Connection connection = null; /* instanciar o objeto do banco sql */

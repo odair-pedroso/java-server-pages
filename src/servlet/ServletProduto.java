@@ -112,8 +112,14 @@ public class ServletProduto extends HttpServlet {
 
 			beanProduto.setId(!id.isEmpty() ? Long.parseLong(id) : null);
 			beanProduto.setNome(nome);
-			beanProduto.setQuantidade(Double.parseDouble(quantidade));
-			beanProduto.setValor(Double.parseDouble(valor));
+
+			if (quantidade != null && !quantidade.isEmpty()) {
+				beanProduto.setQuantidade(Double.parseDouble(quantidade));
+			}
+
+			if (valor != null && !valor.isEmpty()) {
+				beanProduto.setValor(Double.parseDouble(valor));
+			}
 
 			try {
 

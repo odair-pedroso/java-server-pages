@@ -126,7 +126,22 @@ public class ServletProduto extends HttpServlet {
 				String msg = null;
 				boolean podeInserir = true;
 
-				if (id == null || id.isEmpty() && !daoProduto.validarNome(nome)) { // para usuario novo.
+				// validação para o caso de clicar em salvar usuario sem ter inserido nenhuma
+				// informação, não deixar o codigo fazer mais nenhuma validação neste cenario
+
+				if (nome == null || nome.isEmpty()) {
+					msg = "Nome do produto deve ser informado";
+					podeInserir = false;
+
+				} else if (quantidade == null || quantidade.isEmpty()) {
+					msg = "A quantidade do produto deve ser informada";
+					podeInserir = false;
+
+				} else if (valor == null || valor.isEmpty()) {
+					msg = "Valor do produto deve ser informado";
+					podeInserir = false;
+
+				} else if (id == null || id.isEmpty() && !daoProduto.validarNome(nome)) {
 
 					msg = "Produto já existe na base de dados, se desejar, realize alteração usando a opção editar";
 					podeInserir = false;
@@ -137,7 +152,7 @@ public class ServletProduto extends HttpServlet {
 
 					request.setAttribute("msg", msg);
 
-				} else if (id == null || id.isEmpty() && daoProduto.validarNome(nome)) {
+				} else if (id == null || id.isEmpty() && daoProduto.validarNome(nome) && podeInserir) {
 
 					daoProduto.salvar(beanProduto); // salvar
 
@@ -146,7 +161,7 @@ public class ServletProduto extends HttpServlet {
 				if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
 
 					if (!daoProduto.validarNomeUpdate(nome, id)) {
-						request.setAttribute("msg", "Este produto já existe na base de dados");
+						request.setAttribute("msg", "Este nome de produto ja existe já existe");
 
 					} else {
 

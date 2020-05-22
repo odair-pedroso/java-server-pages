@@ -158,10 +158,10 @@ public class ServletProduto extends HttpServlet {
 
 				}
 
-				if (id != null && !id.isEmpty() && podeInserir) { // se o id já existir sendo diferente de nulo e
+				if (id != null && !id.isEmpty() && !podeInserir) { // se o id já existir sendo diferente de nulo e
 
 					if (!daoProduto.validarNomeUpdate(nome, id)) {
-						request.setAttribute("msg", "Este nome de produto ja existe já existe");
+						request.setAttribute("msg", "Este nome de produto ja existe ");
 
 					} else {
 

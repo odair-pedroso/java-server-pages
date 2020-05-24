@@ -19,7 +19,7 @@
 						
 	</center>	
 	
-	<form action ="salvarUsuario" method="post" id="formUser">		
+	<form action ="salvarUsuario" method="post" id="formUser" onsubmit="validarCampos()">		
 		<ul class="form-style-1">
 			<li>
 				<table>		
@@ -76,7 +76,36 @@
 				</c:forEach>	
 			</table>
 	</div>	
+<script type="text/javascript"> 
+
+	function validarCampos() {
+		
+		if(document.getElementById("login").value ==''){
+			alert('Informe o login');
+			return false;
+		}
+		
+		if(document.getElementById("senha").value ==''){
+			alert('Informe a senha');
+			return false;
+		}
+		
+		if(document.getElementById("nome").value ==''){
+			alert('Informe o seu nome');
+			return false;
+		}
+		
+		if(document.getElementById("telefone").value ==''){
+			alert('Informe o telefone');
+			return false;
+		}
+		
+		
+	}
+
+</script>
 	
+		
 
 </body>
 </html>
